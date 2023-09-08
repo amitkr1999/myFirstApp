@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using MyFirstApp.Models;
 using System.Diagnostics;
@@ -23,6 +24,7 @@ namespace MyFirstApp.Controllers
         }
         public IActionResult Contact()
         {
+            ViewBag.TollFreeNumber = "456-123-789";
             return View();
         }
 
@@ -62,9 +64,20 @@ namespace MyFirstApp.Controllers
             ViewBag.StudentName = "Scott";
             ViewBag.Marks = 80;
             ViewBag.Semester = 6;
-            ViewBag.Subjects = new List<String>() {"Math", "Physic", "Chemestry"};  
+            ViewBag.Subjects = new List<String>() {"Math", "Physic", "Chemistry"};  
 
             return View();
+        }
+
+        //public IActionResult RequestExample()
+        //{
+        //    ViewBag.PhysicalApplicationPath = Request.PhysicalApplicationPath;
+        //   return View();
+        //}
+        public IActionResult ResponseExample()
+        {
+            
+           return View();
         }
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -72,6 +85,7 @@ namespace MyFirstApp.Controllers
         //{
         //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         //}
+
 
     }
 
